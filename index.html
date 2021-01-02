@@ -13,19 +13,102 @@
     </style>
   </head>
   <body style="height: 100%">
-    <div
-      style="
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      "
-    >
-      <p>
-        Programming Challenges<br />
-        by Paul
-      </p>
+    <div style="height: 100%; padding: 5px">
+      <pre style="white-space: break-spaces">
+
+<strong>Jan  1 / 2020</strong>
+Apples and oranges
+Difficulty: Easy
+<a href="https://www.hackerrank.com/challenges/apple-and-orange/problem" style="text-decoration: none;"><p>Link to problem</p></a>
+<hr />
+<span style="font-size: x-large; font-weight: bold;">Function Description</span>
+
+Complete the countApplesAndOranges function in the editor below. It should print the number of apples and oranges that land on Sam's house, each on a separate line.
+
+countApplesAndOranges has the following parameter(s):
+
+  s: integer, starting point of Sam's house location.
+  t: integer, ending location of Sam's house location.
+  a: integer, location of the Apple tree.
+  b: integer, location of the Orange tree.
+  apples: integer array, distances at which each apple falls from the tree.
+  oranges: integer array, distances at which each orange falls from the tree.
+  For each apple and orange array value, negative fell that number left of the tree while positive value fell that number right of tree
+
+<hr />
+<!-- 'use strict';
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+} --><span style="font-size: x-large; font-weight: bold;">Solution:</span>
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  // If fruit position is between house start & end
+  // count that fruit as landing on house
+  
+  let applesOnHouse = 0;
+  apples.forEach((value, index) => {
+    let query = value + (a);
+    if(query >= s && query <= t){
+      applesOnHouse ++;
+    }
+  })
+  
+  let orangesOnHouse = 0;
+  oranges.forEach((value, index) => {
+    let query = value + (b);
+    if(query >= s && query <= t){
+      orangesOnHouse ++;
+    }
+  })
+
+  console.log(applesOnHouse)
+  console.log(orangesOnHouse)
+}
+<!-- 
+function main() {
+  const st = readLine().split(' ');
+
+  const s = parseInt(st[0], 10);
+
+  const t = parseInt(st[1], 10);
+
+  const ab = readLine().split(' ');
+
+  const a = parseInt(ab[0], 10);
+
+  const b = parseInt(ab[1], 10);
+
+  const mn = readLine().split(' ');
+
+  const m = parseInt(mn[0], 10);
+
+  const n = parseInt(mn[1], 10);
+
+  const apples = readLine().split(' ').map(applesTemp => parseInt(applesTemp, 10));
+
+  const oranges = readLine().split(' ').map(orangesTemp => parseInt(orangesTemp, 10));
+
+  countApplesAndOranges(s, t, a, b, apples, oranges);
+} -->
+      </pre>
     </div>
     <script></script>
   </body>
