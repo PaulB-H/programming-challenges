@@ -6,7 +6,7 @@
 <hr />
 <p>
   Live Site:
-  <a href="https://www.github.io/paulb-h/code-challenges">
+  <a href="https://paulb-h.github.io/programming-challenges/">
   Programming Challenges
   </a>
 </p>
