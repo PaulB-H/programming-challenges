@@ -18,6 +18,60 @@
 <h2>Dev by Paul<br />Programming Challenges</h2>
 <a href="http://www.devbypaul.ca" target="_blank"><p>www.devbypaul.ca</p></a>
 <hr />
+Jan  2 / 2020
+Kangaroo Problem
+Difficulty: Easy
+<a href="https://www.hackerrank.com/challenges/kangaroo/problem" target="_blank"><p>Link to problem</p></a>
+<hr />
+<h2>Function Description</h2>
+You are choreographing a circus show with various animals. For one act, you are given two kangaroos on a number line ready to jump in the positive direction (i.e, toward positive infinity). 
+
+You have to figure out a way to get both kangaroos at the same location at the same time as part of the show. If it is possible, return YES, otherwise return NO.
+
+It should return YES if they reach the same position at the same time, or NO if they don't.
+kangaroo has the following parameter(s):
+
+  x1, v1: integers, starting position and jump distance for kangaroo 1
+  x2, v2: integers, starting position and jump distance for kangaroo 2
+
+<hr />
+<h2>Solution:</h2>
+function kangaroo(x1, v1, x2, v2) {
+  // x1, v1: integers, starting position and jump distance for kangaroo 1
+  // x2, v2: integers, starting position and jump distance for kangaroo 2
+  // console.log(`x1: ${x1}, v1: ${v1}, x2: ${x2}, v2: ${v2}`)
+  // I should be able to determine if one wont be able to catch the other
+  // if position of start one and speed of start one is both less than other
+
+  // This did not work for all cases
+  // console.log(val)
+  // if ( x1 < x2 && v1 < v2) {
+  //   return "NO"
+  // } else if ( x1 > x2 && v1 > v2) {
+  //     return "NO"
+  // } else {
+  //   return "YES"
+  // }
+
+  // Brute force worked but I know there is a better way
+  let kang1 = x1;
+  let kang2 = x2;
+  let solved = false;
+  for(let i=0;i<10000;i++){
+    kang1 += v1;
+    kang2 += v2;
+    if(kang1 === kang2) {
+        solved = true;
+        return "YES"
+    }
+  }
+  if(solved === false){
+    return "NO"
+  }
+    
+}
+
+<hr />
 Jan  1 / 2020
 Apples and oranges
 Difficulty: Easy
@@ -37,28 +91,7 @@ countApplesAndOranges has the following parameter(s):
   For each apple and orange array value, negative fell that number left of the tree while positive value fell that number right of tree
 
 <hr />
-<!-- 'use strict';
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
-
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', inputStdin => {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', _ => {
-    inputString = inputString.replace(/\s*$/, '')
-        .split('\n')
-        .map(str => str.replace(/\s*$/, ''));
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-} --><h2>Solution:</h2>
+<h2>Solution:</h2>
 function countApplesAndOranges(s, t, a, b, apples, oranges) {
   // If fruit position is between house start & end
   // count that fruit as landing on house
@@ -82,32 +115,6 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
   console.log(applesOnHouse)
   console.log(orangesOnHouse)
 }
-<!-- 
-function main() {
-  const st = readLine().split(' ');
-
-  const s = parseInt(st[0], 10);
-
-  const t = parseInt(st[1], 10);
-
-  const ab = readLine().split(' ');
-
-  const a = parseInt(ab[0], 10);
-
-  const b = parseInt(ab[1], 10);
-
-  const mn = readLine().split(' ');
-
-  const m = parseInt(mn[0], 10);
-
-  const n = parseInt(mn[1], 10);
-
-  const apples = readLine().split(' ').map(applesTemp => parseInt(applesTemp, 10));
-
-  const oranges = readLine().split(' ').map(orangesTemp => parseInt(orangesTemp, 10));
-
-  countApplesAndOranges(s, t, a, b, apples, oranges);
-} -->
       </pre>
     </div>
     <script></script>
