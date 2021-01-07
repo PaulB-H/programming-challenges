@@ -450,7 +450,7 @@ birthdayCakeCandles has the following parameter(s):
 
       <hr />
 
-      <div class="challengeblock mini-">
+      <div class="challengeblock mini-max_sum">
         <h2 class="challenge-header">Mini-Max Sum</h2>
         <p class="challenge-date" style="display: none">Oct 16 / 2020</p>
         <a
@@ -504,6 +504,66 @@ miniMaxSum has the following parameter(s):
       <!-- END mini-max sum -->
 
       <hr />
+
+      <div class="challengeblock staircase">
+        <h2 class="challenge-header">Staircase</h2>
+        <p class="challenge-date" style="display: none">Oct 16 / 2020</p>
+        <a href="enter_link_here" target="_blank">
+          <p>Link to problem</p>
+        </a>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">This is a staircase of size n = 4:</p>
+        <pre>
+
+       #
+      ##
+     ###
+    ####
+        </pre>
+        <p class="challengeText">
+          Its base and height are both equal to n. It is drawn using # symbols
+          and spaces. The last line is not preceded by any spaces. Write a
+          program that prints a staircase of size n.
+        </p>
+        <pre>
+
+staircase has the following parameter(s):
+  int n: an integer
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> function staircase(n) {
+  
+    let rows = n;
+    let stairs = 1;
+    let whitespace = rows -1;
+    let arr = [];
+  
+    for( let i = 0; i < rows; i++ ){
+      for( let x = 0; x < stairs; x++ ){
+        if( arr[i] === undefined ){arr.push([`#`])}
+        else( arr[i].push(`#`) )
+      }
+      for( let y = whitespace; y > 0; y-- ){
+        arr[i].unshift(` `)
+      }
+      whitespace --;
+      stairs++
+    }
+    
+    arr.forEach(function(value){
+      let str = value.toString()
+      let regex = /,/g
+      console.log(str.replace(regex, ""))
+    })
+  
+  }
+          </code>
+        </pre>
+      </div>
+      <!-- END staircase -->
 
       <div class="challengeblock template_div" style="display: none">
         <h3>MMM DD / YYYY - Template Div</h3>
