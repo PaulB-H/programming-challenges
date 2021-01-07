@@ -22,6 +22,11 @@
         padding: 0;
         box-sizing: border-box;
       }
+      #content {
+        padding: 5px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
       hr {
         margin: 5px 0 5px 0;
       }
@@ -37,89 +42,97 @@
     </style>
   </head>
   <body style="height: 100%">
-    <div style="height: 100%; padding: 5px; max-width: 600px; margin: 0 auto">
-      <!-- <pre style="white-space: break-spaces"><code class="language-plaintext"> -->
+    <div id="content">
       <h2>Dev by Paul<br />Programming Challenges</h2>
-      <a href="http://www.devbypaul.ca" target="_blank"
-        ><p>www.devbypaul.ca</p></a
-      >
+
+      <a href="http://www.devbypaul.ca" target="_blank">
+        <p>www.devbypaul.ca</p>
+      </a>
+
       <hr />
-      <h3>Jan 3 / 2020 - Circular Array Rotation</h3>
-      <a
-        href="https://www.hackerrank.com/challenges/circular-array-rotation/problem"
-        target="_blank"
-        ><p>Link to problem</p></a
-      >
-      <hr />
-      <h3>Function Description</h3>
-      <p class="challengeText">
-        John Watson knows of an operation called a right circular rotation on an
-        array of integers. One rotation operation moves the last array element
-        to the first position and shifts all remaining elements right one. To
-        test Sherlock's abilities, Watson provides Sherlock with an array of
-        integers.
-      </p>
-      <br />
-      <p class="challengeText">
-        Sherlock is to perform the rotation operation a number of times then
-        determine the value of the element at a given position. For each array,
-        perform a number of right circular rotations and return the values of
-        the elements at the given indices.
-      </p>
-      <pre>
+
+      <div class="challengeblock circular_array_rotation">
+        <h3>Jan 3 / 2020 - Circular Array Rotation</h3>
+        <a
+          href="https://www.hackerrank.com/challenges/circular-array-rotation/problem"
+          target="_blank"
+        >
+          <p>Link to problem</p>
+        </a>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          John Watson knows of an operation called a right circular rotation on
+          an array of integers. One rotation operation moves the last array
+          element to the first position and shifts all remaining elements right
+          one. To test Sherlock's abilities, Watson provides Sherlock with an
+          array of integers.
+        </p>
+        <br />
+        <p class="challengeText">
+          Sherlock is to perform the rotation operation a number of times then
+          determine the value of the element at a given position. For each
+          array, perform a number of right circular rotations and return the
+          values of the elements at the given indices.
+        </p>
+        <pre>
 
 circularArrayRotation has the following parameter(s): 
   int a[n]: the array to rotate int 
   k: the rotation count int
   queries[1]: the indices to report
 
-</pre
-      >
-      <hr />
-      <h3>Solution:</h3>
-      <pre style="white-space: break-spaces"><code class="language-javascript">
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre style="white-space: break-spaces">
+          <code class="language-javascript">
 function circularArrayRotation(a, k, queries) {
-    // int a[n]: the array to rotate
-    // int k: the rotation count
-    // int queries[1]: the indices to report
-    console.log(a);
-    console.log(k);
-    console.log(queries);
-    for ( let i = 0; i < k ; i++ ) {
-        let item1 = a.pop();
-        a.unshift(item1);
-    }
-    
-    let solution = [];
-    queries.forEach(value => {
-        solution.push(a[value]);
-    })
-    
-    return solution;
+  // int a[n]: the array to rotate
+  // int k: the rotation count
+  // int queries[1]: the indices to report
+  for ( let i = 0; i < k ; i++ ) {
+    let item1 = a.pop();
+    a.unshift(item1);
+  }
+  
+  let solution = [];
+  queries.forEach(value => {
+    solution.push(a[value]);
+  })
+  
+  return solution;
 }
-</code></pre>
+          </code>
+        </pre>
+      </div>
+
       <hr />
-      <h3>Jan 2 / 2020 - Kangaroo Problem</h3>
-      <a
-        href="https://www.hackerrank.com/challenges/kangaroo/problem"
-        target="_blank"
-        ><p>Link to problem</p></a
-      >
-      <hr />
-      <h3>Function Description</h3>
-      <p class="challengeText">
-        You are choreographing a circus show with various animals. For one act,
-        you are given two kangaroos on a number line ready to jump in the
-        positive direction (i.e, toward positive infinity). You have to figure
-        out a way to get both kangaroos at the same location at the same time as
-        part of the show.
-      </p>
-      <br />
-      <p class="challengeText">
-        If it is possible, return YES, otherwise return NO. It should return YES
-        if they reach the same position at the same time, or NO if they don't.
-      </p>
-      <pre>
+
+      <div class="challengeblock kangaroo_problem">
+        <h3>Jan 2 / 2020 - Kangaroo Problem</h3>
+        <a
+          href="https://www.hackerrank.com/challenges/kangaroo/problem"
+          target="_blank"
+        >
+          <p>Link to problem</p>
+        </a>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          You are choreographing a circus show with various animals. For one
+          act, you are given two kangaroos on a number line ready to jump in the
+          positive direction (i.e, toward positive infinity). You have to figure
+          out a way to get both kangaroos at the same location at the same time
+          as part of the show.
+        </p>
+        <br />
+        <p class="challengeText">
+          If it is possible, return YES, otherwise return NO. It should return
+          YES if they reach the same position at the same time, or NO if they
+          don't.
+        </p>
+        <pre>
 
 kangaroo has the following parameter(s): 
   x1, v1: integers, starting position and jump distance 
@@ -127,12 +140,11 @@ kangaroo has the following parameter(s):
   x2, v2: integers, startingposition and jump distance
   for kangaroo 2
 
-</pre
-      >
-
-      <hr />
-      <h3>Solution:</h3>
-      <pre style="white-space: break-spaces"><code class="language-javascript">
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre style="white-space: break-spaces">
+          <code class="language-javascript">
 function kangaroo(x1, v1, x2, v2) {
   // x1, v1: integers, starting position and jump distance for kangaroo 1
   // x2, v2: integers, starting position and jump distance for kangaroo 2
@@ -140,7 +152,7 @@ function kangaroo(x1, v1, x2, v2) {
   // I should be able to determine if one wont be able to catch the other
   // if position of start one and speed of start one is both less than other
 
-  // This did not work for all cases
+  // Below did not work for all cases
   // console.log(val)
   // if ( x1 < x2 && v1 < v2) {
   //   return "NO"
@@ -154,7 +166,7 @@ function kangaroo(x1, v1, x2, v2) {
   let kang1 = x1;
   let kang2 = x2;
   let solved = false;
-  for(let i=0;i<10000;i++){
+  for(let i = 0; i < 10000; i++){
     kang1 += v1;
     kang2 += v2;
     if(kang1 === kang2) {
@@ -167,24 +179,29 @@ function kangaroo(x1, v1, x2, v2) {
   }
     
 }
-</code></pre>
+          </code>
+        </pre>
+      </div>
+      <!-- apples & oranges end -->
 
       <hr />
-      <h3>Jan 1 / 2020 - Apples and oranges</h3>
-      <a
-        href="https://www.hackerrank.com/challenges/apple-and-orange/problem"
-        target="_blank"
-        ><p>Link to problem</p></a
-      >
-      <hr />
-      <h3>Function Description</h3>
-      <p class="challengeText">
-        Complete the countApplesAndOranges function in the editor below. It
-        should print the number of apples and oranges that land on Sam's house,
-        each on a separate line.
-      </p>
-      <pre>
-<p>
+
+      <div class="challengeblock apples_and_oranges">
+        <h3>Jan 1 / 2020 - Apples and oranges</h3>
+        <a
+          href="https://www.hackerrank.com/challenges/apple-and-orange/problem"
+          target="_blank"
+        >
+          <p>Link to problem</p>
+        </a>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          Complete the countApplesAndOranges function in the editor below. It
+          should print the number of apples and oranges that land on Sam's
+          house, each on a separate line.
+        </p>
+        <pre>
 countApplesAndOranges has the following parameter(s): 
   s: integer, starting point of Sam's house location. 
   t: integer, ending location of Sam's house location. 
@@ -197,19 +214,17 @@ countApplesAndOranges has the following parameter(s):
 
   For each apple and orange array value, negative fell that number 
   left of the tree while positive value fell that number right of tree.
-</p>
-</pre>
-      <hr />
-      <h3>Solution:</h3>
-      <pre
-        style="white-space: break-spaces; margin-bottom: 5px"
-      ><code class="language-javascript">
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript">
 function countApplesAndOranges(s, t, a, b, apples, oranges) {
   // If fruit position is between house start & end
   // count that fruit as landing on house
   
   let applesOnHouse = 0;
-  apples.forEach((value, index) => {
+  apples.forEach(value => {
     let query = value + (a);
     if(query >= s && query <= t){
       applesOnHouse ++;
@@ -217,7 +232,7 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
   })
   
   let orangesOnHouse = 0;
-  oranges.forEach((value, index) => {
+  oranges.forEach(value => {
     let query = value + (b);
     if(query >= s && query <= t){
       orangesOnHouse ++;
@@ -227,9 +242,13 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
   console.log(applesOnHouse)
   console.log(orangesOnHouse)
 }
-</code></pre>
-      <!-- </code></pre> -->
+          </code>
+        </pre>
+      </div>
+      <!-- apples & oranges end -->
     </div>
+    <!-- content end div -->
+
     <!-- Highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js"></script>
