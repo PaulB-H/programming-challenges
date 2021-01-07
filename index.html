@@ -246,6 +246,90 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
         </pre>
       </div>
       <!-- apples & oranges end -->
+      <div class="challengeblock maximum_perimeter_triangle">
+        <h3>Oct 17 / 2020 - Maximum Perimeter Triangle</h3>
+        <a
+          href="https://www.hackerrank.com/challenges/maximum-perimeter-triangle"
+          target="_blank"
+        >
+          <p>Link to problem</p>
+        </a>
+        <a
+          href="https://www.quora.com/What-is-a-non-degenerate-triangle"
+          target="_blank"
+        >
+          <p>Resource - What is a non-degenerate triangle?</p>
+        </a>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          Given an array of stick lengths, use of them to construct a
+          non-degenerate triange with the maximum possible perimeter. Print the
+          lengths of its sides as space-separated integers in non-decreasing
+          order.
+        </p>
+        <p class="challengeText">
+          Complete the maximumPerimeterTriangle function in the editor below. It
+          should return an array of 3 integers that represent the side lengths
+          of the chosen triangle in non-decreasing order. If no non-degenerate
+          triangle exists, print -1.
+        </p>
+        <pre>
+
+maximumPerimeterTriangle has the following parameter(s): 
+  sticks: integer array represents the lengths of sticks available
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript">
+
+  function maximumPerimeterTriangle(sticks) {
+  
+    let x, y, z;
+    let len = sticks.length;
+  
+    let xiter = -1;
+    let yiter = -2;
+    let ziter = -3;
+  
+    let solved = false;
+    let noanswer = false;
+  
+    sticks.sort((a,b)=>a-b)
+  
+    do {
+      x = sticks[len+xiter];
+      y = sticks[len+yiter];
+      z = sticks[len+ziter];
+      if(y + z <= x){
+        if(sticks[len + ziter -1] === undefined){
+          solved = true;
+          noanswer = true;
+        } else {
+          xiter -= 1; yiter -= 1; ziter -= 1;
+        }
+      } else {
+        solved = true;
+      }
+      
+    } while (solved === false)
+  
+    if(noanswer === true){
+      return([-1])
+    } else {
+      return([z,y,x])
+    }
+  
+  }
+  
+  maximumPerimeterTriangle([5, 3, 1, 2, 1, 1])
+  // OUTPUT: [1, 1, 1]
+
+          </code>
+        </pre>
+      </div>
+      <!-- maximum perimeter triangle end -->
 
       <div class="challengeblock template_div" style="display: none">
         <h3>MMM DD / YYYY - Template Div</h3>
