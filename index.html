@@ -85,23 +85,22 @@ circularArrayRotation has the following parameter(s):
         <hr />
         <h3>Solution:</h3>
         <pre style="white-space: break-spaces">
-          <code class="language-javascript">
-function circularArrayRotation(a, k, queries) {
-  // int a[n]: the array to rotate
-  // int k: the rotation count
-  // int queries[1]: the indices to report
-  for ( let i = 0; i < k ; i++ ) {
-    let item1 = a.pop();
-    a.unshift(item1);
+          <code class="language-javascript"> function circularArrayRotation(a, k, queries) {
+    // int a[n]: the array to rotate
+    // int k: the rotation count
+    // int queries[1]: the indices to report
+    for ( let i = 0; i < k ; i++ ) {
+      let item1 = a.pop();
+      a.unshift(item1);
+    }
+    
+    let solution = [];
+    queries.forEach(value => {
+      solution.push(a[value]);
+    })
+    
+    return solution;
   }
-  
-  let solution = [];
-  queries.forEach(value => {
-    solution.push(a[value]);
-  })
-  
-  return solution;
-}
           </code>
         </pre>
       </div>
@@ -142,41 +141,40 @@ kangaroo has the following parameter(s):
         <hr />
         <h3>Solution:</h3>
         <pre style="white-space: break-spaces">
-          <code class="language-javascript">
-function kangaroo(x1, v1, x2, v2) {
-  // x1, v1: integers, starting position and jump distance for kangaroo 1
-  // x2, v2: integers, starting position and jump distance for kangaroo 2
-  // console.log(`x1: ${x1}, v1: ${v1}, x2: ${x2}, v2: ${v2}`)
-  // I should be able to determine if one wont be able to catch the other
-  // if position of start one and speed of start one is both less than other
+          <code class="language-javascript"> function kangaroo(x1, v1, x2, v2) {
+    // x1, v1: integers, starting position and jump distance for kangaroo 1
+    // x2, v2: integers, starting position and jump distance for kangaroo 2
+    // console.log(`x1: ${x1}, v1: ${v1}, x2: ${x2}, v2: ${v2}`)
+    // I should be able to determine if one wont be able to catch the other
+    // if position of start one and speed of start one is both less than other
 
-  // Below did not work for all cases
-  // console.log(val)
-  // if ( x1 < x2 && v1 < v2) {
-  //   return "NO"
-  // } else if ( x1 > x2 && v1 > v2) {
-  //     return "NO"
-  // } else {
-  //   return "YES"
-  // }
+    // Below did not work for all cases
+    // console.log(val)
+    // if ( x1 < x2 && v1 < v2) {
+    //   return "NO"
+    // } else if ( x1 > x2 && v1 > v2) {
+    //     return "NO"
+    // } else {
+    //   return "YES"
+    // }
 
-  // Brute force worked but I know there is a better way
-  let kang1 = x1;
-  let kang2 = x2;
-  let solved = false;
-  for(let i = 0; i < 10000; i++){
-    kang1 += v1;
-    kang2 += v2;
-    if(kang1 === kang2) {
-        solved = true;
-        return "YES"
+    // Brute force worked but I know there is a better way
+    let kang1 = x1;
+    let kang2 = x2;
+    let solved = false;
+    for(let i = 0; i < 10000; i++){
+      kang1 += v1;
+      kang2 += v2;
+      if(kang1 === kang2) {
+          solved = true;
+          return "YES"
+      }
     }
+    if(solved === false){
+      return "NO"
+    }
+      
   }
-  if(solved === false){
-    return "NO"
-  }
-    
-}
           </code>
         </pre>
       </div>
@@ -217,30 +215,29 @@ countApplesAndOranges has the following parameter(s):
         <hr />
         <h3>Solution:</h3>
         <pre>
-          <code class="language-javascript">
-function countApplesAndOranges(s, t, a, b, apples, oranges) {
-  // If fruit position is between house start & end
-  // count that fruit as landing on house
-  
-  let applesOnHouse = 0;
-  apples.forEach(value => {
-    let query = value + (a);
-    if(query >= s && query <= t){
-      applesOnHouse ++;
-    }
-  })
-  
-  let orangesOnHouse = 0;
-  oranges.forEach(value => {
-    let query = value + (b);
-    if(query >= s && query <= t){
-      orangesOnHouse ++;
-    }
-  })
+          <code class="language-javascript"> function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    // If fruit position is between house start & end
+    // count that fruit as landing on house
+    
+    let applesOnHouse = 0;
+    apples.forEach(value => {
+      let query = value + (a);
+      if(query >= s && query <= t){
+        applesOnHouse ++;
+      }
+    })
+    
+    let orangesOnHouse = 0;
+    oranges.forEach(value => {
+      let query = value + (b);
+      if(query >= s && query <= t){
+        orangesOnHouse ++;
+      }
+    })
 
-  console.log(applesOnHouse)
-  console.log(orangesOnHouse)
-}
+    console.log(applesOnHouse)
+    console.log(orangesOnHouse)
+  }
           </code>
         </pre>
       </div>
@@ -351,8 +348,7 @@ timeConversion has the following parameter(s):
         <hr />
         <h3>Solution:</h3>
         <pre>
-          <code class="language-javascript">
-  function timeConversion(s) {
+          <code class="language-javascript">function timeConversion(s) {
     let ampm = s.slice(s.length-2)
     let time = s.slice(0,8)
     let militaryTime;
