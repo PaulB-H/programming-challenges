@@ -81,7 +81,6 @@ circularArrayRotation has the following parameter(s):
   int a[n]: the array to rotate int 
   k: the rotation count int
   queries[1]: the indices to report
-
         </pre>
         <hr />
         <h3>Solution:</h3>
@@ -139,7 +138,6 @@ kangaroo has the following parameter(s):
   for kangaroo 1 
   x2, v2: integers, startingposition and jump distance
   for kangaroo 2
-
         </pre>
         <hr />
         <h3>Solution:</h3>
@@ -202,6 +200,7 @@ function kangaroo(x1, v1, x2, v2) {
           house, each on a separate line.
         </p>
         <pre>
+
 countApplesAndOranges has the following parameter(s): 
   s: integer, starting point of Sam's house location. 
   t: integer, ending location of Sam's house location. 
@@ -282,9 +281,7 @@ maximumPerimeterTriangle has the following parameter(s):
         <hr />
         <h3>Solution:</h3>
         <pre>
-          <code class="language-javascript">
-
-  function maximumPerimeterTriangle(sticks) {
+          <code class="language-javascript"> function maximumPerimeterTriangle(sticks) {
   
     let x, y, z;
     let len = sticks.length;
@@ -330,6 +327,59 @@ maximumPerimeterTriangle has the following parameter(s):
         </pre>
       </div>
       <!-- maximum perimeter triangle end -->
+
+      <div class="challengeblock time_conversion">
+        <h3>Oct 17 / 2020 - Time Conversion</h3>
+        <a
+          href="https://www.hackerrank.com/challenges/time-conversion"
+          target="_blank"
+        >
+          <p>Link to problem</p>
+        </a>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          Given a time in 12-hour AM/PM format, convert it to military (24-hour)
+          time. Return a new string representing the input time in 24 hour
+          format.
+        </p>
+        <pre>
+
+timeConversion has the following parameter(s):
+  string s: a time in hour format 
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript">
+  function timeConversion(s) {
+    let ampm = s.slice(s.length-2)
+    let time = s.slice(0,8)
+    let militaryTime;
+  
+    if(ampm===`AM`){
+      if(parseInt(time.slice(0,2))===12){
+          militaryTime = `00` + time.slice(2,8);
+      } else {
+          militaryTime = time;
+      }
+    } else {
+      let hr = parseInt(time.slice(0,2)) + 12;
+      if(hr===24){
+          militaryTime = `12` + time.slice(2,8);
+      } else {
+          militaryTime = hr + time.slice(2,8)
+      }
+    }
+    console.log(militaryTime);
+    return militaryTime;
+  }
+  timeConversion(`09:05:45PM`);
+  // EXPECTED OUTPUT: “21:05:45”
+          </code>
+        </pre>
+      </div>
+      <!-- template end -->
 
       <div class="challengeblock template_div" style="display: none">
         <h3>MMM DD / YYYY - Template Div</h3>
