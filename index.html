@@ -23,6 +23,7 @@
         box-sizing: border-box;
         scrollbar-width: thin;
         scrollbar-color: black white;
+        -webkit-scrollbar-thumb: black;
       }
       #content {
         padding: 5px;
@@ -384,6 +385,59 @@ timeConversion has the following parameter(s):
         </pre>
       </div>
       <!-- time conversion end -->
+
+      <hr />
+
+      <div class="challengeblock birthday_cake_candles">
+        <h3>Oct 17 / 2020 - Birthday Cake Candles</h3>
+        <a href="enter_link_here" target="_blank">
+          <p>Link to problem</p>
+        </a>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          You are in charge of the cake for a child's birthday. You have decided
+          the cake will have one candle for each year of their total age. They
+          will only be able to blow out the tallest of the candles. Count how
+          many candles are tallest.
+        </p>
+        <pre>
+
+birthdayCakeCandles has the following parameter(s):
+  int candles[n]: the candle heights
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> function birthdayCakeCandles(candles) {
+  
+    candles.sort((a,b) => a - b)
+
+    // Tried recursive function below, but it 
+    // breaks on large (100k+) input char length
+    // function recursive(){
+    //   if(candles.pop()===highest){
+    //     result ++;
+    //     recursive();
+    //   }
+    // } recursive();
+
+    let highest = candles.pop();
+    let result = 1;
+  
+    candles.forEach(value => {
+      if(value === highest){
+          result++;
+      }
+    })
+
+    return result;
+    
+  }
+          </code>
+        </pre>
+      </div>
+      <!-- birthday cake candles end -->
 
       <hr />
 
