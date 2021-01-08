@@ -1081,6 +1081,172 @@ countingValleys has the following parameter(s):
 
       <hr />
 
+      <div class="challengeblock sock_merchant">
+        <div class="challenge-header">
+          <h2 class="challenge-title">Sock Merchant</h2>
+          <p class="challenge-date" style="display: none">Unknown</p>
+          <a
+            href="https://www.hackerrank.com/challenges/sock-merchant/problem"
+            target="_blank"
+          >
+            <p>Link to problem</p>
+          </a>
+        </div>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          Alex works at a clothing store. There is a large pile of socks that
+          must be paired by color for sale. Given an array of integers
+          representing the color of each sock, determine how many pairs of socks
+          with matching colors there are.
+        </p>
+        <pre>
+
+sockMerchant has the following parameter(s):
+  n: the number of socks in the pile
+  ar: the colors of each sock
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> function sockMerchant(n, ar) {
+  
+    let myArr = ar;
+    let score = 0;
+
+    myArr.sort();
+
+    do {
+      if (myArr[0] === myArr[1]) {
+        myArr.shift();
+        myArr.shift();
+        score++;
+      } else {
+        myArr.shift();
+      }
+    } while (myArr.length > 1)
+
+    return score;
+  
+  }
+          </code>
+        </pre>
+      </div>
+      <!-- END sock merchant -->
+
+      <hr />
+
+      <div class="challengeblock heroes_vs_monsters">
+        <div class="challenge-header">
+          <h2 class="challenge-title">Heroes vs Monsters</h2>
+          <p class="challenge-date" style="display: none">Unknown</p>
+          <a
+            href="https://edabit.com/challenge/WaDov6ktofCzwcRst"
+            target="_blank"
+          >
+            <p>Link to problem</p>
+          </a>
+        </div>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          You are implementing a battle system for a simple role-playing game. A
+          hero is fighting various monsters, and you have to determine the
+          battle's outcome for each engaged skirmish. Hero and monsters share
+          some stats:
+        </p>
+        <ul style="margin-left: 30px">
+          <li>
+            HP or Health Points: The amount of damage the character can sustain.
+            If it reaches 0 (or less) the character dies.
+          </li>
+          <li>ATT or Attack: The character offensive capacity.</li>
+          <li>DEF or Defense: The character defensive capacity.</li>
+        </ul>
+        <p class="challengeText">
+          For either hero and monster, the damage inflicted is calculated
+          subtracting the opponent's defense score from the attacker doubled
+          attack score.
+        </p>
+        <p class="challengeText">
+          In each round hero attacks first, and his damage rate is subtracted
+          from the monster's HP. If the monster survives (HP > 0), it is his
+          turn to attack. If the hero survives (HP > 0), a new round starts.
+        </p>
+        <p class="challengeText">
+          The hero can also have some POT, or Healing Potions, in his backpack:
+          only when his HP is equal to or lower than 10, a potion can (and must)
+          be used for regaining 10 HP at the start of a new round. When the hero
+          heals, he can't attack, but he receives only half damage from the
+          monster's attack. Every potion can be used only once, then it must be
+          discarded.
+        </p>
+        <pre>
+
+Given an object containing the character's stats (with p-prefix ones being the hero's stats and m-prefix ones being the monster's) you must return a string:
+  "Victory in x rounds" if the hero wins.
+  "Game Over in x rounds" if the monster wins.
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> Enter solution funciton here(){
+function battle(data) {
+
+  let winner = undefined;
+  let roundNum = 0;
+  let potUsed = false;
+  let playerDmg = (data.pATT * 2) - data.mDEF;
+  let monsterDmg = (data.mATT * 2) - data.pDEF;
+  let halvedDmg = ((data.mATT * 2) - data.pDEF) / 2;
+  
+  function playerTurn() {
+    roundNum ++;
+    if (data.pHP <= 10 && data.pPOT > 0) {
+        data.pPOT --;
+        data.pHP += 10;
+        potUsed = true;
+    } else {
+      data.mHP -= playerDmg;
+    }
+    winnerCheck();
+  }
+
+  function monsterTurn() {
+    if (potUsed) {
+      data.pHP -= halvedDmg;
+      potUsed = false;
+    } else {
+      data.pHP -= monsterDmg;
+    }
+    winnerCheck();
+  }
+
+  function winnerCheck() {
+    if (data.mHP <= 0) {
+      winner = `Victory in ${roundNum} rounds`
+    }
+
+    if (data.pHP <= 0) {
+      winner = `Game Over in ${roundNum} rounds`
+    }
+  }
+  
+  do {
+    playerTurn();
+    monsterTurn();
+  } while (winner == undefined);
+  
+  return winner;
+  
+};
+          </code>
+        </pre>
+      </div>
+      <!-- END heroes vs monsters -->
+
+      <hr />
+
       <div class="challengeblock template_div" style="display: none">
         <div class="challenge-header">
           <h2 class="challenge-title">Template Div</h2>
