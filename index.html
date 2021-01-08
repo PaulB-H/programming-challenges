@@ -48,6 +48,7 @@
       }
       .challengeText {
         text-indent: 25px;
+        margin-top: 5px;
       }
     </style>
   </head>
@@ -652,6 +653,88 @@ plusMinus has the following parameter(s):
 
       <hr />
 
+      <div class="challengeblock diagonal_difference">
+        <div class="challenge-header">
+          <h2 class="challenge-title">Diagonal Difference</h2>
+          <p class="challenge-date" style="display: none">Oct 16 / 2020</p>
+          <a
+            href="https://www.hackerrank.com/challenges/diagonal-difference/problem"
+            target="_blank"
+          >
+            <p>Link to problem</p>
+          </a>
+        </div>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          Given a square matrix, calculate the absolute difference between the
+          sums of its diagonals.
+        </p>
+        <pre>
+
+For example, the square matrix arr is shown below: 
+
+1 2 3
+4 5 6
+9 8 9 
+
+The left-to-right diagonal = 1 + 5 + 9 = 15. 
+The right to left diagonal = 3 + 5 + 9 = 17. 
+Their absolute difference is |15 - 17| = 2. 
+        </pre>
+        <pre>
+diagonalDifference takes the following parameter:
+  int arr[n][m]: an array of integers
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> function diagonalDifference(arr) {
+
+    let primary = 0;
+    let secondary = arr.length -1;
+
+    let primaryArr = [];
+    let secondaryArr = [];
+
+    let primarySum = 0;
+    let secondarySum = 0;
+
+    let len = arr.length;
+
+    for(let i = 0; i < len; i++){
+      primaryArr.push(arr[i][primary]);
+      primary ++;
+
+      secondaryArr.push(arr[i][secondary])
+      secondary --;
+    }
+
+    primaryArr.forEach(value => {
+      primarySum += value;
+    })
+
+    secondaryArr.forEach(value => {
+      secondarySum += value;
+    })
+
+    let result;
+    if(primarySum > secondarySum){
+      result = primarySum - secondarySum;
+    } else {
+      result = secondarySum - primarySum;
+    }
+
+    return result;
+
+  }
+          </code>
+        </pre>
+      </div>
+      <!-- END diagonal difference -->
+
+      <hr />
+
       <div class="challengeblock template_div" style="display: none">
         <div class="challenge-header">
           <h2 class="challenge-title">Template Div</h2>
@@ -662,7 +745,7 @@ plusMinus has the following parameter(s):
         </div>
         <hr />
         <h3>Function Description</h3>
-        <p class="challengeText">Paragraph indented "normal" text block here</p>
+        <p class="challengeText">25px text indented text block here</p>
         <pre>
 
 Enter plaintext pre formatting here
@@ -684,7 +767,7 @@ Enter plaintext pre formatting here
           </code>
         </pre>
       </div>
-      <!-- template end -->
+      <!-- END template -->
     </div>
     <!-- content end div -->
 
