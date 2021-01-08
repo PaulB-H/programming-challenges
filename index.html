@@ -1360,7 +1360,7 @@ Note:
     let sorted = [];
 
     for( i = 0; i < str.length; i++) {
-      sorted.push(str.charAt(i))
+      sorted.push(str.charAt(i));
     };
 
     sorted.sort(); 
@@ -1404,15 +1404,32 @@ Given two strings,p1 and p2, return which person drew their gun the fastest. If 
         <hr />
         <h3>Solution:</h3>
         <pre>
-          <code class="language-javascript"> Enter solution funciton here(){
-  let string = "
-    Notice how the first line is actually
-    up above inline with the first code tag?
-    That is necessary for proper line numbers
-  ";
-  
-  return solution;
-}
+          <code class="language-javascript"> function showdown(p1, p2) {
+    let len = p1.length;
+    let p1score;
+    let p2score;
+
+    for(i = 0; i < len; i++) {
+        if (p1.charAt(i) == "B") {
+          p1score = i;
+        }
+    };
+
+    for(x = 0; x < len; x++) {
+      if (p2.charAt(x) == "B") {
+        p2score = x;
+      }
+    };
+    
+    if (p1score > p2score) {
+      return "p2";
+    } else if (p1score < p2score) {
+      return "p1";
+    } else if (p1score == p2score) {
+      return "tie";
+    }
+      
+  }
           </code>
         </pre>
       </div>
