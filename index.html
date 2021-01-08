@@ -1155,6 +1155,7 @@ sockMerchant has the following parameter(s):
           battle's outcome for each engaged skirmish. Hero and monsters share
           some stats:
         </p>
+        <br />
         <ul style="margin-left: 30px">
           <li>
             HP or Health Points: The amount of damage the character can sustain.
@@ -1163,6 +1164,7 @@ sockMerchant has the following parameter(s):
           <li>ATT or Attack: The character offensive capacity.</li>
           <li>DEF or Defense: The character defensive capacity.</li>
         </ul>
+        <br />
         <p class="challengeText">
           For either hero and monster, the damage inflicted is calculated
           subtracting the opponent's defense score from the attacker doubled
@@ -1190,60 +1192,231 @@ Given an object containing the character's stats (with p-prefix ones being the h
         <hr />
         <h3>Solution:</h3>
         <pre>
-          <code class="language-javascript"> Enter solution funciton here(){
-function battle(data) {
+          <code class="language-javascript"> function battle(data) {
 
-  let winner = undefined;
-  let roundNum = 0;
-  let potUsed = false;
-  let playerDmg = (data.pATT * 2) - data.mDEF;
-  let monsterDmg = (data.mATT * 2) - data.pDEF;
-  let halvedDmg = ((data.mATT * 2) - data.pDEF) / 2;
-  
-  function playerTurn() {
-    roundNum ++;
-    if (data.pHP <= 10 && data.pPOT > 0) {
-        data.pPOT --;
-        data.pHP += 10;
-        potUsed = true;
-    } else {
-      data.mHP -= playerDmg;
-    }
-    winnerCheck();
-  }
-
-  function monsterTurn() {
-    if (potUsed) {
-      data.pHP -= halvedDmg;
-      potUsed = false;
-    } else {
-      data.pHP -= monsterDmg;
-    }
-    winnerCheck();
-  }
-
-  function winnerCheck() {
-    if (data.mHP <= 0) {
-      winner = `Victory in ${roundNum} rounds`
+    let winner = undefined;
+    let roundNum = 0;
+    let potUsed = false;
+    let playerDmg = (data.pATT * 2) - data.mDEF;
+    let monsterDmg = (data.mATT * 2) - data.pDEF;
+    let halvedDmg = ((data.mATT * 2) - data.pDEF) / 2;
+    
+    function playerTurn() {
+      roundNum ++;
+      if (data.pHP <= 10 && data.pPOT > 0) {
+          data.pPOT --;
+          data.pHP += 10;
+          potUsed = true;
+      } else {
+        data.mHP -= playerDmg;
+      }
+      winnerCheck();
     }
 
-    if (data.pHP <= 0) {
-      winner = `Game Over in ${roundNum} rounds`
+    function monsterTurn() {
+      if (potUsed) {
+        data.pHP -= halvedDmg;
+        potUsed = false;
+      } else {
+        data.pHP -= monsterDmg;
+      }
+      winnerCheck();
     }
-  }
-  
-  do {
-    playerTurn();
-    monsterTurn();
-  } while (winner == undefined);
-  
-  return winner;
-  
-};
+
+    function winnerCheck() {
+      if (data.mHP <= 0) {
+        winner = `Victory in ${roundNum} rounds`
+      }
+
+      if (data.pHP <= 0) {
+        winner = `Game Over in ${roundNum} rounds`
+      }
+    }
+    
+    do {
+      playerTurn();
+      monsterTurn();
+    } while (winner == undefined);
+    
+    return winner;
+    
+  };
           </code>
         </pre>
       </div>
       <!-- END heroes vs monsters -->
+
+      <hr />
+
+      <div class="challengeblock body_mass_index">
+        <div class="challenge-header">
+          <h2 class="challenge-title">Body Mass Index</h2>
+          <p class="challenge-date" style="display: none">Unknown</p>
+          <a
+            href="https://edabit.com/challenge/rfjyk42gRWu2RBHhm"
+            target="_blank"
+          >
+            <p>Link to problem</p>
+          </a>
+        </div>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          Body Mass Index (BMI) is found by taking your weight in kilograms and
+          dividing by the square of your height in meters. The BMI categories
+          are:
+        </p>
+        <br />
+        <ul style="margin-left: 30px">
+          <li>Underweight: < 18.5</li>
+          <li>Normal weight: 18.5–24.9</li>
+          <li>Overweight: 25–29.9</li>
+          <li>Obesity: BMI of 30 or greater</li>
+        </ul>
+        <pre>
+
+Create a function that will accept weight and height 
+(in kilos, pounds, meters, or inches)
+Return the BMI and the associated category. 
+Round the BMI to nearest tenth.
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> function BMI(weight, height) {
+      
+    weightSplit = weight.split(" ");
+    
+    if (weightSplit[1] === "pounds") {
+      var weightKilos = weightSplit[0] / 2.2046;
+    } else {
+      var weightKilos = weightSplit[0];
+    }
+    
+    heightSplit = height.split(" ");
+    
+    if (heightSplit[1] === "inches") {
+      var heightMeters = heightSplit[0] * 0.0254;
+    } else {
+      var heightMeters = heightSplit[0];
+    }
+    
+    let heightSquared = heightMeters * heightMeters;
+    
+    let bmi = weightKilos / heightSquared;
+    
+    bmi = bmi.toFixed(1);
+    
+    if (bmi < 18.5) {
+      var bmiString = " Underweight"
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      var bmiString = " Normal weight"
+    } else if (bmi >= 25 && bmi <= 29.9) {
+      var bmiString = " Overweight"
+    } else if (bmi >= 30) {
+      var bmiString = " Obesity"
+    };
+    
+    bmi = bmi.toString();
+    
+    let answer = bmi.concat(bmiString);
+    
+    return answer;
+
+  }
+          </code>
+        </pre>
+      </div>
+      <!-- END body mass index -->
+
+      <hr />
+
+      <div class="challengeblock is_the_string_in_order">
+        <div class="challenge-header">
+          <h2 class="challenge-title">Is the String in Order?</h2>
+          <p class="challenge-date" style="display: none">Unknown</p>
+          <a
+            href="https://edabit.com/challenge/9GcCezhbB3DxoJ6fL"
+            target="_blank"
+          >
+            <p>Link to problem</p>
+          </a>
+        </div>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          Create a function that takes a string and returns true or false,
+          depending on whether the characters are in order or not.
+        </p>
+        <pre>
+
+Note:
+  You don't have to handle empty strings.
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> function isInOrder(str) {
+    let sorted = [];
+
+    for( i = 0; i < str.length; i++) {
+      sorted.push(str.charAt(i))
+    };
+
+    sorted.sort(); 
+    sorted = sorted.join("");
+
+    if (str == sorted){
+      return true;
+    } else {
+      return false;
+    }
+  }
+          </code>
+        </pre>
+      </div>
+      <!-- END is the string in order? -->
+
+      <hr />
+
+      <div class="challengeblock western_showdown">
+        <div class="challenge-header">
+          <h2 class="challenge-title">Western Showdown</h2>
+          <p class="challenge-date" style="display: none">Unknown</p>
+          <a
+            href="https://edabit.com/challenge/9N7zA5oiu6v5nhuBm"
+            target="_blank"
+          >
+            <p>Link to problem</p>
+          </a>
+        </div>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          Wild Roger is participating in a Western Showdown, meaning he has to
+          draw (pull out and shoot) his gun faster than his opponent in a gun
+          standoff.
+        </p>
+        <pre>
+
+Given two strings,p1 and p2, return which person drew their gun the fastest. If both are drawn at the same time, return "tie".
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> Enter solution funciton here(){
+  let string = "
+    Notice how the first line is actually
+    up above inline with the first code tag?
+    That is necessary for proper line numbers
+  ";
+  
+  return solution;
+}
+          </code>
+        </pre>
+      </div>
+      <!-- END western showdown -->
 
       <hr />
 
