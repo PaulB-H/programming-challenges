@@ -44,8 +44,8 @@
         max-width: max-content;
         margin: 0 auto;
       }
-      .challenge-title {
-      }
+      /* .challenge-title {
+      } */
       .challengeText {
         text-indent: 25px;
         margin-top: 5px;
@@ -118,7 +118,7 @@ circularArrayRotation has the following parameter(s):
           </code>
         </pre>
       </div>
-      <!-- circular array rotation end -->
+      <!-- END circular array rotation -->
 
       <hr />
 
@@ -196,7 +196,7 @@ kangaroo has the following parameter(s):
           </code>
         </pre>
       </div>
-      <!-- kangaroo problem end -->
+      <!-- END kangaroo proble -->
 
       <hr />
 
@@ -262,7 +262,7 @@ countApplesAndOranges has the following parameter(s):
           </code>
         </pre>
       </div>
-      <!-- apples & oranges end -->
+      <!-- END apples & oranges -->
 
       <hr />
 
@@ -350,7 +350,7 @@ maximumPerimeterTriangle has the following parameter(s):
           </code>
         </pre>
       </div>
-      <!-- maximum perimeter triangle end -->
+      <!-- END maximum perimeter triangle -->
 
       <hr />
 
@@ -407,7 +407,7 @@ timeConversion has the following parameter(s):
           </code>
         </pre>
       </div>
-      <!-- time conversion end -->
+      <!-- END time conversion -->
 
       <hr />
 
@@ -466,7 +466,7 @@ birthdayCakeCandles has the following parameter(s):
           </code>
         </pre>
       </div>
-      <!-- birthday cake candles end -->
+      <!-- END birthday cake candles -->
 
       <hr />
 
@@ -1005,6 +1005,82 @@ jumpingOnClouds has the following parameter(s):
 
       <hr />
 
+      <div class="challengeblock counting_valleys">
+        <div class="challenge-header">
+          <h2 class="challenge-title">Counting Valleys</h2>
+          <p class="challenge-date" style="display: none">Unknown</p>
+          <a
+            href="https://www.hackerrank.com/challenges/counting-valleys/problem"
+            target="_blank"
+          >
+            <p>Link to problem</p>
+          </a>
+        </div>
+        <hr />
+        <h3>Function Description</h3>
+        <p class="challengeText">
+          An avid hiker keeps meticulous records of their hikes. During the last
+          hike that took exactly steps, for every step it was noted if it was an
+          uphill, U , or a downhill, D step. Hikes always start and end at sea
+          level, and each step up or down represents a 1 unit change in
+          altitude. We define the following terms:
+        </p>
+        <ul style="margin-left: 30px">
+          <li>
+            A mountain is a sequence of consecutive steps above sea level,
+            starting with a step up from sea level and ending with a step down
+            to sea level.
+          </li>
+          <li>
+            A valley is a sequence of consecutive steps below sea level,
+            starting with a step down from sea level and ending with a step up
+            to sea level.
+          </li>
+        </ul>
+        <p class="challengeText">
+          Given the sequence of up and down steps during a hike, find and print
+          the number of valleys walked through.
+        </p>
+        <pre>
+
+countingValleys has the following parameter(s):
+  int steps: the number of steps on the hike
+  string path: a string describing the path
+        </pre>
+        <hr />
+        <h3>Solution:</h3>
+        <pre>
+          <code class="language-javascript"> function countingValleys(n, s) {
+  
+    let steps = n;
+    let path = s;
+    let elevate = 0;
+    let valleys = 0;
+
+    let pathArr = path.split("");
+
+    for(let i = 0; i < steps; i++) {
+
+      if (pathArr[i] === "D") {
+        elevate--;
+      } else if (pathArr[i] === "U") {
+        elevate++;
+        if(elevate === 0) {
+          valleys++;
+        }
+      }
+    }
+
+    return valleys;
+  
+  }
+          </code>
+        </pre>
+      </div>
+      <!-- END counting valleys -->
+
+      <hr />
+
       <div class="challengeblock template_div" style="display: none">
         <div class="challenge-header">
           <h2 class="challenge-title">Template Div</h2>
@@ -1043,6 +1119,7 @@ Enter plaintext pre formatting here
 
     <!-- Highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+    <!-- Highlight.js Line Numbers -->
     <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js"></script>
     <script>
       hljs.initHighlightingOnLoad();
