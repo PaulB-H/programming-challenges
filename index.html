@@ -39,6 +39,11 @@
       h2 {
         margin-bottom: 3px;
       }
+      .challenge-header {
+        text-align: center;
+      }
+      .challenge-title {
+      }
       .challengeText {
         text-indent: 25px;
       }
@@ -55,7 +60,7 @@
       <hr />
 
       <div class="challengeblock circular_array_rotation">
-        <h2 class="challenge-header">Circular Array Rotation</h2>
+        <h2 class="challenge-title">Circular Array Rotation</h2>
         <p class="challenge-date" style="display: none">Jan 3 / 2020</p>
         <a
           href="https://www.hackerrank.com/challenges/circular-array-rotation/problem"
@@ -113,7 +118,7 @@ circularArrayRotation has the following parameter(s):
       <hr />
 
       <div class="challengeblock kangaroo_problem">
-        <h2 class="challenge-header">Kangaroo Problem</h2>
+        <h2 class="challenge-title">Kangaroo Problem</h2>
         <p class="challenge-date" style="display: none">Jan 2 / 2020</p>
         <a
           href="https://www.hackerrank.com/challenges/kangaroo/problem"
@@ -189,7 +194,7 @@ kangaroo has the following parameter(s):
       <hr />
 
       <div class="challengeblock apples_and_oranges">
-        <h2 class="challenge-header">Apples and Oranges</h2>
+        <h2 class="challenge-title">Apples and Oranges</h2>
         <p class="challenge-date" style="display: none">Jan 1 / 2020</p>
         <a
           href="https://www.hackerrank.com/challenges/apple-and-orange/problem"
@@ -253,7 +258,7 @@ countApplesAndOranges has the following parameter(s):
       <hr />
 
       <div class="challengeblock maximum_perimeter_triangle">
-        <h2 class="challenge-header">Maximum Perimeter Triangle</h2>
+        <h2 class="challenge-title">Maximum Perimeter Triangle</h2>
         <p class="challenge-date" style="display: none">Oct 17 / 2020</p>
         <a
           href="https://www.hackerrank.com/challenges/maximum-perimeter-triangle"
@@ -339,7 +344,7 @@ maximumPerimeterTriangle has the following parameter(s):
       <hr />
 
       <div class="challengeblock time_conversion">
-        <h2 class="challenge-header">Time Conversion</h2>
+        <h2 class="challenge-title">Time Conversion</h2>
         <p class="challenge-date" style="display: none">Oct 17 / 2020</p>
         <a
           href="https://www.hackerrank.com/challenges/time-conversion"
@@ -394,7 +399,7 @@ timeConversion has the following parameter(s):
       <hr />
 
       <div class="challengeblock birthday_cake_candles">
-        <h2 class="challenge-header">Birthday Cake Candles</h2>
+        <h2 class="challenge-title">Birthday Cake Candles</h2>
         <p class="challenge-date" style="display: none">Oct 17 / 2020</p>
         <a
           href="https://www.hackerrank.com/challenges/birthday-cake-candles"
@@ -451,7 +456,7 @@ birthdayCakeCandles has the following parameter(s):
       <hr />
 
       <div class="challengeblock mini-max_sum">
-        <h2 class="challenge-header">Mini-Max Sum</h2>
+        <h2 class="challenge-title">Mini-Max Sum</h2>
         <p class="challenge-date" style="display: none">Oct 16 / 2020</p>
         <a
           href="https://www.hackerrank.com/challenges/mini-max-sum"
@@ -506,7 +511,7 @@ miniMaxSum has the following parameter(s):
       <hr />
 
       <div class="challengeblock staircase">
-        <h2 class="challenge-header">Staircase</h2>
+        <h2 class="challenge-title">Staircase</h2>
         <p class="challenge-date" style="display: none">Oct 16 / 2020</p>
         <a href="enter_link_here" target="_blank">
           <p>Link to problem</p>
@@ -565,10 +570,10 @@ staircase has the following parameter(s):
       </div>
       <!-- END staircase -->
 
-      <br />
+      <hr />
 
       <div class="challengeblock plus_minus">
-        <h2 class="challenge-header">Plus Minus</h2>
+        <h2 class="challenge-title">Plus Minus</h2>
         <p class="challenge-date" style="display: none">Oct 16 / 2020</p>
         <a
           href="https://www.hackerrank.com/challenges/plus-minus"
@@ -628,22 +633,32 @@ plusMinus has the following parameter(s):
       <hr />
 
       <div class="challengeblock template_div" style="display: none">
-        <h3>MMM DD / YYYY - Template Div</h3>
-        <a href="enter_link_here" target="_blank">
-          <p>Link to problem</p>
-        </a>
+        <div class="challenge-header">
+          <h2 class="challenge-title">Template Div</h2>
+          <p class="challenge-date" style="display: none">MMM DD / YYYY</p>
+          <a href="enter_link_here" target="_blank">
+            <p>Link to problem</p>
+          </a>
+        </div>
         <hr />
         <h3>Function Description</h3>
         <p class="challengeText">Paragraph indented "normal" text block here</p>
         <pre>
+
 Enter plaintext pre formatting here
   Things like challenge parameters
+  Also, leave one blank space above
         </pre>
         <hr />
         <h3>Solution:</h3>
         <pre>
-          <code class="language-javascript">
-Enter solution funciton here(){
+          <code class="language-javascript"> Enter solution funciton here(){
+  let string = "
+    Notice how the first line is actually
+    up above inline with the first code tag?
+    That is necessary for proper line numbers
+  ";
+  
   return solution;
 }
           </code>
